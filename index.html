@@ -2,34 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pandemic Fingerprint: SF Crime Analysis</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.7; color: #333; max-width: 900px; margin: 0 auto; padding: 60px 20px; background-color: #ffffff; }
-        h1 { font-size: 3rem; text-weight: 800; text-align: center; margin-bottom: 20px; color: #000; letter-spacing: -1px; }
-        h2 { font-size: 1.8rem; border-bottom: 3px solid #000; padding-bottom: 10px; margin-top: 60px; text-transform: uppercase; letter-spacing: 1px; }
-        p { margin-bottom: 25px; font-size: 1.15rem; color: #444; }
-        a { color: #007bff; text-decoration: none; border-bottom: 1px solid #007bff; }
-        a:hover { background-color: #f0f7ff; }
-        .visual-container { margin: 50px 0; text-align: center; background: #fff; padding: 10px; border: 1px solid #eee; }
-        .caption { font-size: 0.95rem; font-style: italic; color: #666; margin-top: 15px; text-align: left; line-height: 1.4; padding: 10px 20px; background: #f8f8f8; border-left: 5px solid #333; }
-        img { max-width: 100%; height: auto; }
-        iframe { border: none; width: 100%; height: 600px; }
-        .reference-section { margin-top: 100px; font-size: 0.9rem; color: #888; border-top: 1px dotted #ccc; padding-top: 30px; }
-        .reference-section ul { list-style: none; padding: 0; }
-        .reference-section li { margin-bottom: 10px; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 50px 20px 70px 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 3.1rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #000;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-top: 70px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px solid #007bff;
+        }
+
+        a:hover {
+            background-color: #f0f7ff;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 35px auto;
+            color: #555;
+        }
+
+        .visual-container {
+            margin: 45px 0 35px 0;
+            text-align: center;
+            background: #fff;
+            padding: 18px;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .caption {
+            font-size: 0.97rem;
+            font-style: italic;
+            color: #666;
+            margin-top: 16px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 12px 18px;
+            background: #f8f8f8;
+            border-left: 5px solid #333;
+            border-radius: 4px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 600px;
+            border-radius: 6px;
+        }
+
+        .reference-section {
+            margin-top: 90px;
+            font-size: 0.95rem;
+            color: #666;
+            border-top: 1px dotted #ccc;
+            padding-top: 30px;
+        }
+
+        .reference-section h3 {
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .reference-section ul {
+            padding-left: 18px;
+        }
+
+        .reference-section li {
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 <body>
 
     <h1>The City That Changed Overnight</h1>
+
+    <p class="intro-text">
+        A short data story about how the COVID-19 pandemic reshaped crime patterns in San Francisco, not just by lowering activity overall, but by shifting where crime happened and what kinds of opportunities remained.
+    </p>
     
-    <p>San Francisco, a city bustling with tourists, restaurants are packed, and limitless activities to explore. But on an evening in March 2020, the city took a turn, a month we all remember: the dreadful start of the COVID-19 pandemic. Streets emptied, people boarded up in their homes, and just like that, the city was unrecognizable. Everything changed, from tourism levels dropping to the crime patterns changing. </p>
+    <p>San Francisco, a city bustling with tourists, restaurants are packed, and limitless activities to explore. But on an evening in March 2020, the city took a turn, a month we all remember: the dreadful start of the COVID-19 pandemic. Streets emptied, people boarded up in their homes, and just like that, the city was unrecognizable. Everything changed, from tourism levels dropping to the crime patterns changing.</p>
     
     <p>Today we will explore how crime shifted as our beloved city changed forever. The San Francisco Police Department meticulously recorded incident reports ranging from 2018 to 2023, giving adequate data to analyze this change. The crimes to highlight include vandalism, prostitution, assault, disorderly conduct, burglary, stolen property, and fraud. So no, crime didn’t just stop or move online as we may have expected: it evolved from public spaces to private, opportunistic ones.</p>
 
     <h2>The Divergence Mystery</h2>
     
-    <p>Now as expected, overall crime initially dropped as people figured out how to adapt to a new way of living; street crimes, such as prostitution and disorderly conduct, dropped off the charts. These crimes created a clear "V-shape" in the charts, which is unsurprising. Now while we might think that fraud would increase due to the shift to a more digital way of life with Zoom and online shopping becoming the new normal, it actually decreased significantly during COVID. </p>
+    <p>Now as expected, overall crime initially dropped as people figured out how to adapt to a new way of living; street crimes, such as prostitution and disorderly conduct, dropped off the charts. These crimes created a clear "V-shape" in the charts, which is unsurprising. Now while we might think that fraud would increase due to the shift to a more digital way of life with Zoom and online shopping becoming the new normal, it actually decreased significantly during COVID.</p>
 
     <div class="visual-container">
         <img src="crime_panel_final.png" alt="8-panel crime chart">
@@ -42,34 +142,36 @@
 
     <h2>The "Guardian" Theory in Action</h2>
     
-    <p>This can be linked to the <strong>Routine Activity Theory</strong> first proposed in the <a href="https://www.jstor.org/stable/2094589" target="_blank"><em>American Sociological Review</em></a>, which posits that three elements must converge for a crime to occur: a motivated offender, a suitable target, and the absence of a capable guardian. During the mandatory lockdowns starting in March 2020, people were constantly home, acting as "guardians" for their residences. </p>
+    <p>This can be linked to the <strong>Routine Activity Theory</strong> first proposed in the <a href="https://www.jstor.org/stable/2094589" target="_blank"><em>American Sociological Review</em></a>, which posits that three elements must converge for a crime to occur: a motivated offender, a suitable target, and the absence of a capable guardian. During the mandatory lockdowns starting in March 2020, people were constantly home, acting as "guardians" for their residences.</p>
 
     <div class="visual-container">
-        <iframe src="sf_crime_map.html"></iframe>
+        <iframe src="sf_crime_map.html" title="Burglary heat map"></iframe>
         <div class="caption">
             <strong>Figure 2: Interactive Heat Map: 2020 Burglary Hotspots.</strong> Against what we initially expected, crime didn’t disappear, it just relocated. Commercial and workplace hubs such as SoMa and the Financial District became targets due to their vacancy. The opportunity was there, the eyes of workers and security were gone, thus crime levels in these areas grew. Zoom in to see how specific areas reacted.
         </div>
     </div>
 
-    <p>When looking at the heatmap, notice the stark 'cooling' of residential districts like the Sunset and Richmond. These neighborhoods became protected as the city's workforce stayed home. In contrast, the 'heat' of crime is most prominent in commercial spots such as the Financial District, which for the first time in history, had no "eyes on the street" after 5:00 PM. Desks were empty and doors were unwatched, providing the perfect opportunity for non-residential burglary to thrive. </p>
+    <p>When looking at the heatmap, notice the stark 'cooling' of residential districts like the Sunset and Richmond. These neighborhoods became protected as the city's workforce stayed home. In contrast, the 'heat' of crime is most prominent in commercial spots such as the Financial District, which for the first time in history, had no "eyes on the street" after 5:00 PM. Desks were empty and doors were unwatched, providing the perfect opportunity for non-residential burglary to thrive.</p>
 
     <h2>The Road to Recovery</h2>
     
     <div class="visual-container">
-        <div style="padding: 80px; border: 2px dashed #ddd; color: #999;">[Final Group Visualization Goes Here]</div>
+        <iframe src="crime_recovery_plot.html" title="Crime recovery Plotly chart"></iframe>
         <div class="caption">
-            <strong>Figure 3: [Group Caption Here].</strong>
+            <strong>Figure 3: Crime Recovery Trends After COVID-19.</strong> This interactive visualization follows how burglary, fraud, assault, and vandalism changed from 2018 through 2023. While some crime categories began moving back toward pre-pandemic levels, others remained uneven, showing that San Francisco’s recovery was not a simple return to normal.
         </div>
     </div>
 
-    <p>As we moved into 2022 and 2023, did the city's 'guardians' return to their offices? Our final visualization explores the [PUT IN NAME OF FINAL VISUAL], revealing whether the true "Fingerprint of the Pandemic" is a permanent scar or a fading memory.</p>
+    <p>As we moved into 2022 and 2023, did the city's 'guardians' return to their offices? Our final visualization explores how major crime categories changed over time after the lockdown years, revealing whether the true "Fingerprint of the Pandemic" is a permanent scar or a fading memory.</p>
+
+    <p>What stands out most is that recovery did happen, but not in a perfectly balanced way. Some categories showed signs of returning toward earlier levels, while others stayed far from where they started. This suggests that the pandemic did not simply interrupt crime patterns for a short period of time, but instead reshaped the daily rhythms of the city itself. Even after restrictions were lifted, the opportunities that drive crime had already shifted, leaving behind a city that was functioning differently than before.</p>
 
     <div class="reference-section">
         <h3>References & Data Sources</h3>
         <ul>
             <li>San Francisco Police Department. (2024). <em>Police Department Incident Reports: 2018 to Present.</em> SF OpenData.</li>
-            <li>Cohen, L. E., & Felson, M. (1979). Social Change and Crime Rate Trends: A Routine Activity Approach. <em>American Sociological Review</em>. <a href="https://www.jstor.org/stable/2094589">Link</a></li>
-            <li>Stickle, B., & Felson, M. (2020). Crime Rates in a Pandemic: the Post-lockdown Era. <em>Journal of Experimental Criminology</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9387408/">Link</a></li>
+            <li>Cohen, L. E., &amp; Felson, M. (1979). Social Change and Crime Rate Trends: A Routine Activity Approach. <em>American Sociological Review</em>. <a href="https://www.jstor.org/stable/2094589" target="_blank">Link</a></li>
+            <li>Stickle, B., &amp; Felson, M. (2020). Crime Rates in a Pandemic: the Post-lockdown Era. <em>Journal of Experimental Criminology</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9387408/" target="_blank">Link</a></li>
         </ul>
     </div>
 
