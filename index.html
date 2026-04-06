@@ -142,10 +142,19 @@
         .contributions-section,
         .reference-section {
             margin-top: 90px;
-            font-size: 0.96rem;
-            color: var(--muted);
             border-top: 1px dashed var(--line);
             padding-top: 30px;
+        }
+
+        .contributions-section p,
+        .contributions-section li {
+            font-size: 1.08rem;
+            color: var(--text);
+        }
+
+        .reference-section {
+            font-size: 0.96rem;
+            color: var(--muted);
         }
 
         .contributions-section ul,
@@ -170,7 +179,9 @@
             }
 
             p,
-            .intro-text {
+            .intro-text,
+            .contributions-section p,
+            .contributions-section li {
                 font-size: 1rem;
             }
 
@@ -242,6 +253,10 @@
     </p>
 
     <h2>The Road to Recovery</h2>
+
+    <p>
+        As we moved into 2022 and 2023, an important question remains: did the city's guardians return to their offices, routines, and public spaces in the same way as before? This final visualization focuses on how major crime categories behaved after the strict lockdown years, helping us see whether the pandemic’s effects were temporary or whether they left behind a more lasting mark on the city.
+    </p>
    
     <div class="visual-container">
         <iframe src="crime_recovery_plot.html" title="Crime recovery Plotly chart"></iframe>
@@ -252,14 +267,10 @@
     </div>
 
     <p>
-        As we moved into 2022 and 2023, an important question remains: did the city's guardians return to their offices, routines, and public spaces in the same way as before? This final visualization focuses on how major crime categories behaved after the strict lockdown years, helping us see whether the pandemic’s effects were temporary or whether they left behind a more lasting mark on the city.
-    </p>
-
-    <p>
         What stands out most is that recovery did happen, but not in a clean or balanced way. Burglary remained unusually high during the core pandemic period, assault dropped sharply before partly rebounding, and fraud did not move in one simple direction. This shows that the pandemic did not just pause crime for a short time. It changed the structure of daily opportunity across San Francisco, and even after restrictions were lifted, the city did not fully return to its old patterns.
     </p>
 
-    <h2>Conclusion</h2>
+    <h2>The Final Fingerprint</h2>
 
     <p>
         Looking across all three visualizations, the biggest takeaway is that COVID-19 did not simply reduce crime. It reorganized it. Crimes that depended on busy streets, nightlife, and public interaction fell fast once the city shut down. At the same time, other crimes adapted to the new reality. Burglary especially shows that when daily routines changed, criminal opportunity changed with them.
