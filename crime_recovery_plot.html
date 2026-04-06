@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<div id="plot" style="width:100%;height:100%;"></div>
+
+<script>
+var trace1 = {
+    x: [2018, 2019, 2020, 2021, 2022, 2023],
+    y: [6000, 5800, 8500, 8700, 6800, 400],
+    mode: 'lines+markers',
+    name: 'Burglary'
+};
+
+var trace2 = {
+    x: [2018, 2019, 2020, 2021, 2022, 2023],
+    y: [3000, 2600, 5500, 3500, 4700, 500],
+    mode: 'lines+markers',
+    name: 'Fraud'
+};
+
+var trace3 = {
+    x: [2018, 2019, 2020, 2021, 2022, 2023],
+    y: [10000, 9500, 11500, 6200, 7800, 900],
+    mode: 'lines+markers',
+    name: 'Assault'
+};
+
+var trace4 = {
+    x: [2018, 2019, 2020, 2021, 2022, 2023],
+    y: [7000, 7500, 9500, 200, 300, 100],
+    mode: 'lines+markers',
+    name: 'Vandalism'
+};
+
+var data = [trace1, trace2, trace3, trace4];
+
+var layout = {
+    title: "Crime Recovery Trends After COVID-19",
+    xaxis: {title: "Year"},
+    yaxis: {title: "Incident Count"},
+    template: "simple_white"
+};
+
+Plotly.newPlot('plot', data, layout);
+</script>
+
+</body>
+</html>
