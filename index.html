@@ -5,113 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pandemic Fingerprint: SF Crime Analysis</title>
     <style>
+        :root {
+            --bg: #fcfcfb;
+            --panel: #ffffff;
+            --text: #3f4750;
+            --heading: #1f2d3a;
+            --muted: #66707a;
+            --line: #d9dee3;
+            --soft: #f3f5f7;
+            --accent-dark: #264653;
+            --accent-green: #2a9d8f;
+            --accent-coral: #e07a5f;
+            --shadow: 0 10px 28px rgba(31, 45, 58, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             line-height: 1.8;
-            color: #333;
-            max-width: 950px;
+            color: var(--text);
+            max-width: 980px;
             margin: 0 auto;
-            padding: 50px 20px 70px 20px;
-            background-color: #ffffff;
+            padding: 52px 22px 80px;
+            background-color: var(--bg);
         }
 
         h1 {
-            font-size: 3.1rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
             text-align: center;
-            margin-bottom: 15px;
-            color: #000;
-            letter-spacing: -1px;
+            margin: 0 0 18px 0;
+            color: var(--heading);
+            letter-spacing: -0.03em;
+            line-height: 1.08;
         }
 
         h2 {
-            font-size: 1.75rem;
-            border-bottom: 3px solid #000;
+            font-size: 1.65rem;
+            border-bottom: 3px solid var(--heading);
             padding-bottom: 10px;
-            margin-top: 70px;
-            margin-bottom: 20px;
+            margin-top: 72px;
+            margin-bottom: 22px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
+            color: var(--heading);
+            line-height: 1.2;
         }
 
         p {
             margin-bottom: 24px;
-            font-size: 1.1rem;
-            color: #444;
+            font-size: 1.08rem;
+            color: var(--text);
         }
 
         a {
-            color: #007bff;
+            color: var(--accent-green);
             text-decoration: none;
-            border-bottom: 1px solid #007bff;
+            border-bottom: 1px solid rgba(42, 157, 143, 0.45);
+            transition: 0.2s ease;
         }
 
         a:hover {
-            background-color: #f0f7ff;
+            color: var(--accent-dark);
+            border-bottom-color: var(--accent-dark);
+            background-color: transparent;
         }
 
         .intro-text {
             text-align: center;
-            max-width: 780px;
-            margin: 0 auto 35px auto;
-            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: var(--muted);
+            font-size: 1.12rem;
         }
 
         .visual-container {
-            margin: 45px 0 35px 0;
+            margin: 42px 0 34px 0;
             text-align: center;
-            background: #fff;
+            background: var(--panel);
             padding: 18px;
-            border: 1px solid #e8e8e8;
-            border-radius: 10px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
         }
 
         .caption {
             font-size: 0.97rem;
             font-style: italic;
-            color: #666;
+            color: #5e6872;
             margin-top: 16px;
             text-align: left;
-            line-height: 1.5;
-            padding: 12px 18px;
-            background: #f8f8f8;
-            border-left: 5px solid #333;
-            border-radius: 4px;
+            line-height: 1.55;
+            padding: 14px 18px;
+            background: var(--soft);
+            border-left: 5px solid var(--accent-dark);
+            border-radius: 8px;
+        }
+
+        .caption strong {
+            color: var(--heading);
         }
 
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 6px;
+            border-radius: 10px;
+            display: block;
         }
 
         iframe {
             border: none;
             width: 100%;
-            height: 600px;
-            border-radius: 6px;
+            height: 620px;
+            border-radius: 10px;
+            display: block;
+            background: #fff;
         }
 
         .reference-section {
             margin-top: 90px;
-            font-size: 0.95rem;
-            color: #666;
-            border-top: 1px dotted #ccc;
+            font-size: 0.96rem;
+            color: var(--muted);
+            border-top: 1px dashed var(--line);
             padding-top: 30px;
         }
 
         .reference-section h3 {
-            color: #000;
+            color: var(--heading);
             margin-bottom: 15px;
+            font-size: 1.12rem;
         }
 
         .reference-section ul {
-            padding-left: 18px;
+            padding-left: 20px;
+            margin: 0;
         }
 
         .reference-section li {
             margin-bottom: 12px;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 36px 14px 60px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                margin-top: 56px;
+            }
+
+            p,
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .visual-container {
+                padding: 12px;
+                border-radius: 12px;
+            }
+
+            iframe {
+                height: 500px;
+            }
+
+            .caption {
+                font-size: 0.93rem;
+            }
         }
     </style>
 </head>
