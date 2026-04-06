@@ -1,84 +1,115 @@
-<html>
-<head><meta charset="utf-8" /></head>
-<body style="margin:0; font-family: Helvetica, Arial, sans-serif; background:#ffffff;">
-    <div>
-        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js"></script>
-        <div id="crime-plot" style="height:100%; width:100%;"></div>
-        <script type="text/javascript">
-            const data = [
-                {
-                    x: [2018, 2019, 2020, 2021, 2022, 2023],
-                    y: [11548, 9748, 11601, 6171, 7060, 7716],
-                    mode: "lines+markers",
-                    name: "Assault",
-                    line: {color: "#E07A5F", width: 3},
-                    marker: {size: 7}
-                },
-                {
-                    x: [2018, 2019, 2020, 2021, 2022, 2023],
-                    y: [8474, 5659, 8662, 8307, 6867, 5800],
-                    mode: "lines+markers",
-                    name: "Burglary",
-                    line: {color: "#264653", width: 3},
-                    marker: {size: 7}
-                },
-                {
-                    x: [2018, 2019, 2020, 2021, 2022, 2023],
-                    y: [5696, 4796, 3774, 3471, 4764, 4761],
-                    mode: "lines+markers",
-                    name: "Fraud",
-                    line: {color: "#2A9D8F", width: 3},
-                    marker: {size: 7}
-                },
-                {
-                    x: [2018, 2019, 2020, 2021, 2022, 2023],
-                    y: [2902, 3233, 323, 380, 337, 354],
-                    mode: "lines+markers",
-                    name: "Vandalism",
-                    line: {color: "#8D99AE", width: 3},
-                    marker: {size: 7}
-                }
-            ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Crime Composition Over Time</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #ffffff;
+        }
+        #plot {
+            width: 100%;
+            height: 620px;
+        }
+    </style>
+</head>
+<body>
 
-            const layout = {
-                title: {
-                    text: "Crime Recovery Trends After COVID-19",
-                    x: 0.5,
-                    xanchor: "center",
-                    font: {size: 22, color: "#111"}
-                },
-                paper_bgcolor: "#ffffff",
-                plot_bgcolor: "#f8f8f8",
-                font: {
-                    family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                    size: 14,
-                    color: "#333"
-                },
-                xaxis: {
-                    title: "Year",
-                    tickmode: "linear",
-                    dtick: 1,
-                    gridcolor: "#dddddd",
-                    zeroline: false
-                },
-                yaxis: {
-                    title: "Incident Count",
-                    gridcolor: "#dddddd",
-                    zeroline: false
-                },
-                hovermode: "x unified",
-                legend: {
-                    orientation: "h",
-                    y: -0.2,
-                    x: 0.5,
-                    xanchor: "center"
-                },
-                margin: {l: 70, r: 30, t: 70, b: 80}
-            };
+<div id="plot"></div>
 
-            Plotly.newPlot("crime-plot", data, layout, {responsive: true, displayModeBar: false});
-        </script>
-    </div>
+<script>
+const teal = "#264653";
+const green = "#2A9D8F";
+const coral = "#E07A5F";
+const slate = "#8D99AE";
+
+const data = [
+    {
+        x: [2018, 2019, 2020, 2021, 2022, 2023],
+        y: [8474, 5659, 8662, 8307, 6867, 5800],
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Burglary',
+        stackgroup: 'one',
+        line: {color: teal}
+    },
+    {
+        x: [2018, 2019, 2020, 2021, 2022, 2023],
+        y: [5696, 4796, 3774, 3471, 4764, 4761],
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Fraud',
+        stackgroup: 'one',
+        line: {color: green}
+    },
+    {
+        x: [2018, 2019, 2020, 2021, 2022, 2023],
+        y: [11548, 9748, 11601, 6171, 7060, 7716],
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Assault',
+        stackgroup: 'one',
+        line: {color: coral}
+    },
+    {
+        x: [2018, 2019, 2020, 2021, 2022, 2023],
+        y: [2902, 3233, 323, 380, 337, 354],
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Vandalism',
+        stackgroup: 'one',
+        line: {color: slate}
+    }
+];
+
+const layout = {
+    title: {
+        text: "How Crime Composition Changed After COVID-19",
+        x: 0.5
+    },
+    xaxis: {title: "Year"},
+    yaxis: {title: "Total Incidents"},
+    hovermode: "x unified",
+    plot_bgcolor: "#f3f5f7",
+    paper_bgcolor: "#ffffff",
+    font: {
+        family: "Helvetica Neue, Helvetica, Arial",
+        color: "#333"
+    },
+    shapes: [
+        {
+            type: "line",
+            x0: 2020,
+            x1: 2020,
+            y0: 0,
+            y1: 1,
+            xref: "x",
+            yref: "paper",
+            line: {
+                color: "#2A9D8F",
+                width: 2,
+                dash: "dash"
+            }
+        }
+    ],
+    annotations: [
+        {
+            x: 2020,
+            y: 1.05,
+            xref: "x",
+            yref: "paper",
+            text: "Pandemic Begins",
+            showarrow: false,
+            font: {color: "#2A9D8F"}
+        }
+    ]
+};
+
+Plotly.newPlot('plot', data, layout, {responsive: true});
+</script>
+
 </body>
 </html>
