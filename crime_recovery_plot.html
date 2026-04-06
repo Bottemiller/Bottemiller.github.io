@@ -18,162 +18,103 @@
     </style>
 </head>
 <body>
+    <div id="plot"></div>
 
-<div id="plot"></div>
+    <script>
+        const teal = "#264653";
+        const green = "#2A9D8F";
+        const coral = "#E07A5F";
+        const slate = "#8D99AE";
 
-<script>
-const teal = "#264653";
-const green = "#2A9D8F";
-const coral = "#E76F51";
-const slate = "#8D99AE";
+        const data = [
+            {
+                x: [2018, 2019, 2020, 2021, 2022, 2023],
+                y: [8474, 5659, 8662, 8307, 6867, 5800],
+                type: "scatter",
+                mode: "lines",
+                name: "Burglary",
+                stackgroup: "one",
+                line: { color: teal }
+            },
+            {
+                x: [2018, 2019, 2020, 2021, 2022, 2023],
+                y: [5696, 4796, 3774, 3471, 4764, 4761],
+                type: "scatter",
+                mode: "lines",
+                name: "Fraud",
+                stackgroup: "one",
+                line: { color: green }
+            },
+            {
+                x: [2018, 2019, 2020, 2021, 2022, 2023],
+                y: [11548, 9748, 11601, 6171, 7060, 7716],
+                type: "scatter",
+                mode: "lines",
+                name: "Assault",
+                stackgroup: "one",
+                line: { color: coral }
+            },
+            {
+                x: [2018, 2019, 2020, 2021, 2022, 2023],
+                y: [2902, 3233, 323, 380, 337, 354],
+                type: "scatter",
+                mode: "lines",
+                name: "Vandalism",
+                stackgroup: "one",
+                line: { color: slate }
+            }
+        ];
 
-const data = [
-    {
-        x: [2018, 2019, 2020, 2021, 2022, 2023],
-        y: [8474, 5659, 8662, 8307, 6867, 5800],
-        type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Burglary',
-        line: {color: teal, width: 3},
-        marker: {size: 6}
-    },
-    {
-        x: [2018, 2019, 2020, 2021, 2022, 2023],
-        y: [5696, 4796, 3774, 3471, 4764, 4761],
-        type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Fraud',
-        line: {color: green, width: 3},
-        marker: {size: 6}
-    },
-    {
-        x: [2018, 2019, 2020, 2021, 2022, 2023],
-        y: [11548, 9748, 11601, 6171, 7060, 7716],
-        type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Assault',
-        line: {color: coral, width: 3},
-        marker: {size: 6}
-    },
-    {
-        x: [2018, 2019, 2020, 2021, 2022, 2023],
-        y: [2902, 3233, 323, 380, 337, 354],
-        type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Vandalism',
-        line: {color: slate, width: 3},
-        marker: {size: 6}
-    }
-];
-
-const layout = {
-    title: {
-        text: "<b>HOW CRIME COMPOSITION CHANGED AFTER COVID-19</b>",
-        x: 0,
-        xanchor: "left",
-        font: {
-            family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-            size: 20,
-            color: "#264653"
-        }
-    },
-    xaxis: {
-        title: {
-            text: "Year",
+        const layout = {
+            title: {
+                text: "How Crime Composition Changed After COVID-19",
+                x: 0.5
+            },
+            xaxis: {
+                title: "Year"
+            },
+            yaxis: {
+                title: "Total Incidents"
+            },
+            hovermode: "x unified",
+            plot_bgcolor: "#f3f5f7",
+            paper_bgcolor: "#ffffff",
             font: {
-                family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                size: 13,
-                color: "#264653"
-            }
-        },
-        tickmode: "array",
-        tickvals: [2018, 2020, 2022],
-        tickfont: {
-            family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-            size: 10,
-            color: "#666666"
-        },
-        showgrid: false,
-        zeroline: false,
-        showline: true,
-        linecolor: "#dddddd",
-        mirror: false
-    },
-    yaxis: {
-        title: {
-            text: "Total Incidents",
-            font: {
-                family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                size: 13,
-                color: "#264653"
-            }
-        },
-        tickfont: {
-            family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-            size: 10,
-            color: "#666666"
-        },
-        gridcolor: "rgba(153,153,153,0.2)",
-        gridwidth: 1,
-        zeroline: false,
-        showline: true,
-        linecolor: "#dddddd"
-    },
-    hovermode: "x unified",
-    plot_bgcolor: "#ffffff",
-    paper_bgcolor: "#ffffff",
-    font: {
-        family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-        color: "#666666",
-        size: 12
-    },
-    legend: {
-        orientation: "h",
-        x: 0,
-        y: 1.12,
-        bgcolor: "rgba(255,255,255,0)"
-    },
-    margin: {
-        l: 70,
-        r: 30,
-        t: 90,
-        b: 60
-    },
-    shapes: [
-        {
-            type: "line",
-            x0: 2020,
-            x1: 2020,
-            y0: 0,
-            y1: 1,
-            xref: "x",
-            yref: "paper",
-            line: {
-                color: "#2A9D8F",
-                width: 1.5,
-                dash: "dash"
-            }
-        }
-    ],
-    annotations: [
-        {
-            x: 2020.05,
-            y: 0.9,
-            xref: "x",
-            yref: "paper",
-            text: "<b>Pandemic Begins</b>",
-            showarrow: false,
-            font: {
-                family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                size: 10,
-                color: "#2A9D8F"
-            }
-        }
-    ]
-};
+                family: "Helvetica Neue, Helvetica, Arial",
+                color: "#333"
+            },
+            shapes: [
+                {
+                    type: "line",
+                    x0: 2020,
+                    x1: 2020,
+                    y0: 0,
+                    y1: 1,
+                    xref: "x",
+                    yref: "paper",
+                    line: {
+                        color: "#2A9D8F",
+                        width: 2,
+                        dash: "dash"
+                    }
+                }
+            ],
+            annotations: [
+                {
+                    x: 2020,
+                    y: 1.05,
+                    xref: "x",
+                    yref: "paper",
+                    text: "Pandemic Begins",
+                    showarrow: false,
+                    font: {
+                        color: "#2A9D8F"
+                    }
+                }
+            ]
+        };
 
-Plotly.newPlot('plot', data, layout, {responsive: true, displayModeBar: false});
-</script>
-
+        Plotly.newPlot("plot", data, layout, { responsive: true });
+    </script>
 </body>
 </html>
