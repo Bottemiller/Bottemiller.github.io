@@ -111,6 +111,7 @@
 
         .caption strong {
             color: var(--heading);
+            font-weight: 700;
         }
 
         img {
@@ -129,7 +130,8 @@
             background: #fff;
         }
 
-        .reference-section {
+        .reference-section,
+        .contributions-section {
             margin-top: 90px;
             font-size: 0.96rem;
             color: var(--muted);
@@ -137,18 +139,21 @@
             padding-top: 30px;
         }
 
-        .reference-section h3 {
+        .reference-section h3,
+        .contributions-section h3 {
             color: var(--heading);
             margin-bottom: 15px;
             font-size: 1.12rem;
         }
 
-        .reference-section ul {
+        .reference-section ul,
+        .contributions-section ul {
             padding-left: 20px;
             margin: 0;
         }
 
-        .reference-section li {
+        .reference-section li,
+        .contributions-section li {
             margin-bottom: 12px;
         }
 
@@ -237,7 +242,7 @@
     <div class="visual-container">
         <iframe src="crime_recovery_plot.html" title="Crime recovery Plotly chart"></iframe>
         <div class="caption">
-            <strong>Figure 3: Crime Recovery Trends After COVID-19.</strong> Built from the merged San Francisco crime dataset, this interactive Plotly chart follows burglary, fraud, assault, and vandalism from 2018 through 2023. The figure shows that recovery was uneven: burglary stayed elevated into the pandemic years, assault dropped sharply before climbing again, and fraud recovered more gradually. Rather than a simple return to normal, the city’s crime pattern appears to have been reshaped by the pandemic.
+            <strong>Figure 3: Crime Recovery Trends After COVID-19.</strong> Built from the merged San Francisco crime dataset, this interactive Plotly chart follows burglary, fraud, assault, and vandalism from 2018 through 2023. The figure shows that recovery was uneven: burglary stayed elevated into the pandemic years, assault dropped sharply before partly rebounding, and fraud recovered more gradually. Rather than a simple return to normal, the city’s crime pattern appears to have been reshaped by the pandemic.
         </div>
     </div>
 
@@ -262,6 +267,21 @@
     <p>
         Even as San Francisco moved past the strict lockdown years, the city did not neatly snap back to normal. Some categories recovered, some stayed low, and others changed direction in ways that were less predictable. That uneven recovery matters because it suggests the pandemic left more than just a temporary disruption. It left a fingerprint. Overall, this project shows that to understand crime, we also have to understand how cities function day to day, and what happens when that rhythm is suddenly broken.
     </p>
+
+    <div class="contributions-section">
+        <h3>Contributions</h3>
+        <p>
+            This assignment was completed collaboratively, with each group member responsible for specific sections of the analysis.
+        </p>
+        <ul>
+            <li>Leah completed figure 1 and 2, including the initial building of the repository, as well as writing the introduction, The Divergence Mystery section, and The “Guardian Theory” in Action section.</li>
+            <li>Cemal completed figure 3, including the Road to Recovery written section, as well as adjusting formatting and ensuring consistency among the figures.</li>
+            <li>Vedat completed the conclusion, as well as helped with formatting of the site and all of the graphs.</li>
+        </ul>
+        <p>
+            All group members contributed to reviewing the results, discussing interpretations, and refining the final written report.
+        </p>
+    </div>
 
     <div class="reference-section">
         <h3>References & Data Sources</h3>
